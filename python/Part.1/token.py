@@ -2,6 +2,7 @@
 
 TOKEN_INTEGER = 'INTEGER'
 TOKEN_PLUS = 'PLUS'
+TOKEN_MINUS = 'MINUS'
 TOKEN_EOF = 'EOF'
 
 class Token(object):
