@@ -19,12 +19,18 @@ class Interpreter(object):
         self.eat(token.TOKEN_INTEGER)
 
         op = self.current_token
-        self.eat(token.TOKEN_MINUS)
+        if op.type == token.TOKEN_MINUS:
+            self.eat(token.TOKEN_MINUS)
+        else:
+            self.eat(token.TOKEN_PLUS)
 
         right = self.current_token
         self.eat(token.TOKEN_INTEGER)
 
-        result = left.value - right.value
+        if op.type == token.TOKEN_MINUS:
+            result = left.value - right.value
+        else:
+            result = left.value + right.value
         return result
 
     def eat(self, token_type):
